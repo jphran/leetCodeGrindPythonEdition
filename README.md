@@ -15,8 +15,12 @@ same thing as leetcodegrind but python3
 
    
 ### Medium:
-
+1. <a href="https://leetcode.
+   com/problems/longest-increasing-subsequence">Longest Increasing 
+   Subsequence</a> NEEDS REVIEW
+   
 ### Hard:
 
 ## Needs Review 
+1. Longest Increasing Subsequence (need to redo)
 
