@@ -13,9 +13,10 @@ def lengthOfLIS(self, nums: List[int]) -> int:
                 lis_length += 1
 
 # class Node:
-#     def __init__(self, val: int):
+#     def __init__(self, val: int, node: 'Node'):
 #         self.val = val
 #         self.next = None
+#         self.node = node
 
 
 # def binary_search(arr: List[List[int]], min_idx: int, max_idx: int, search_val:
