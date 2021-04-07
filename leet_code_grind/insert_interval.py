@@ -15,21 +15,19 @@ def insert(self, intervals: List[List[int]], newInterval: List[int]) -> \
                                                       newInterval[1])
 
     # replace if necessary
-    if first_is_between and not second_is_between:
-        intervals[first_idx][1] = newInterval[1]
-        result = intervals[:first_idx] + intervals[second_idx:]
-    elif not first_is_between and second_is_between:
-        intervals[second_idx][0] = newInterval[0]
-        result = intervals[:first_idx+1] + intervals[second_idx+1:]
-    elif not first_is_between and not second_is_between:
-        result = intervals[:first_idx+1] + [newInterval] \
-                 + intervals[second_idx:]
+    if not first_is_between:
+        intervals[first_idx + 1][0] = newInterval[0]
+        first_part = intervals[:first_idx+1]
     else:
-        result = intervals[:first_idx] \
-                 + [[intervals[first_idx][0], intervals[second_idx][1]]] \
-                 + intervals[second_idx + 1:]
+        first_part = intervals[:first_idx]
 
-    return result
+    if not second_is_between:
+        intervals[second_idx + 1][1] = newInterval[1]
+        second_part = intervals[second_idx+1:]
+    else:
+        second_part = intervals[second_idx:]
+
+    return first_part + second_part
 
 
 def __binary_search(self, intervals: List[List[int]], number:
@@ -55,4 +53,4 @@ int, start_idx: int = 0, end_idx: int = -1) -> Tuple[int, bool]:
         else:
             return mid_idx, True
 
-    return mid_idx, False
+    return start_idx - 1, False

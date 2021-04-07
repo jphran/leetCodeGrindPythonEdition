@@ -38,6 +38,13 @@ class MyTestCase(unittest.TestCase):
         output = insert_interval.insert(None, interval, new_interval)
         self.assertEqual(ans, output)
 
+    def test_failed_fn1(self):
+        interval = [[1, 5]]
+        new_interval = [0, 0]
+        ans = [[0, 0], [1, 5]]
+        output = insert_interval.insert(None, interval, new_interval)
+        self.assertEqual(ans, output)
+
 
 if __name__ == '__main__':
     unittest.main()
